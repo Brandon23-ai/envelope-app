@@ -18,5 +18,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "allowScripts": {
+    "better-sqlite3@12.11.1": true,
+    "@swc/core@1.16.2": true
+  }
 }
