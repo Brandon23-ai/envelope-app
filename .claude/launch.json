@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mobile-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "web", "--workspace=apps/mobile", "--", "--port", "8082"],
+      "port": 8082
+    },
+    {
+      "name": "api",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--workspace=apps/api"],
+      "port": 3000
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import type { StringValue } from 'ms';
 import { UsersModule } from '../users/users.module.js';
 import { RefreshToken } from './entities/refresh-token.entity.js';
 import { JwtStrategy } from './strategies/jwt.strategy.js';
@@ -18,7 +19,10 @@ import { TokenService } from './token.service.js';
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
         secret: config.get<string>('JWT_ACCESS_SECRET'),
-        signOptions: { algorithm: 'HS256', expiresIn: '15m' },
+        signOptions: {
+          algorithm: 'HS256',
+          expiresIn: (config.get<string>('JWT_ACCESS_EXPIRES_IN') ?? '7d') as StringValue,
+        },
       }),
     }),
   ],

@@ -3,9 +3,13 @@
     "name": "envelope-frontend-app",
     "slug": "envelope-frontend-app",
     "version": "1.0.0",
+    "scheme": "envelope",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "experiments": {
+      "typedRoutes": true
+    },
     "ios": {
       "supportsTablet": true
     },
@@ -19,7 +23,15 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-font",
+      "expo-splash-screen",
+      "expo-router",
+      "expo-web-browser"
+    ]
   }
 }
